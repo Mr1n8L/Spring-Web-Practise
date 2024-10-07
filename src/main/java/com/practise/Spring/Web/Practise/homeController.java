@@ -7,8 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class homeController {
 
     @RequestMapping("/")
+    //alternatively we can use @ResponseBody to return the data from the server to the client like REST does
     public String greet(){
         return "Hello, World!";
     }
+
+
 }
 

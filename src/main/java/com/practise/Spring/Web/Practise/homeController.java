@@ -18,4 +18,3 @@ public class homeController {
         return "This is the about page";
     }
 }
-

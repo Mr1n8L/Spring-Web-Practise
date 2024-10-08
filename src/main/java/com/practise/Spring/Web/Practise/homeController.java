@@ -13,6 +13,7 @@ public class homeController {
     }
 
     @RequestMapping("/about")
+    //Requests a mapped by a "Front Controller" present b/w the client layer and controller(of server) layer
     public String about(){
         return "This is the about page";
     }

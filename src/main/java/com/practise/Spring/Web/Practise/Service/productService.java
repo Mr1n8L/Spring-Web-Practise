@@ -18,4 +18,18 @@ public class productService {
     public List<product> getProducts() {
         return products;
     }
+
+    public product getProductById(int id) {
+
+        // We could also use Java 8 Stream API approach for efficient search for products with a specific id in the list
+        // return products.stream().filter(p -> p.getProduct_id() == id).findFirst().orElse(null);
+
+        // or we can use a custom for loop instead
+        for (product product : products) {
+            if (product.getProduct_id() == id) {
+                return product;
+            }
+        }
+        return null;
+    }
 }

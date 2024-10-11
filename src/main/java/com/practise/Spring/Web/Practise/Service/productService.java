@@ -32,4 +32,9 @@ public class productService {
         }
         return null;
     }
+
+    public product addProduct(product product){
+        products.add(product);
+        return product;
+    }
 }

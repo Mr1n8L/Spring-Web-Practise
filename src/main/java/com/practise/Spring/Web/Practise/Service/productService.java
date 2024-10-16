@@ -1,7 +1,7 @@
 package com.practise.Spring.Web.Practise.Service;
 
 import com.practise.Spring.Web.Practise.Model.product;
-//import lombok.Getter;
+import lombok.Getter;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -45,6 +45,16 @@ public class productService {
             if(product1.getProduct_id() == product.getProduct_id()){
                 product1.setProduct_name(product.getProduct_name());
                 product1.setProduct_price(product.getProduct_price());
+                return product;
+            }
+        }
+        return null;
+    }
+
+    public product deleteProduct(int id){
+        for(product product : products){
+            if(product.getProduct_id() == id){
+                products.remove(product);
                 return product;
             }
         }

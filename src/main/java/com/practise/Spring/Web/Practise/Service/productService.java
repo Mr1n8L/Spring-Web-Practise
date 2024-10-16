@@ -39,4 +39,15 @@ public class productService {
         products.add(product);
         return product;
     }
+
+    public product updateProduct(product product){
+        for(product product1 : products){
+            if(product1.getProduct_id() == product.getProduct_id()){
+                product1.setProduct_name(product.getProduct_name());
+                product1.setProduct_price(product.getProduct_price());
+                return product;
+            }
+        }
+        return null;
+    }
 }

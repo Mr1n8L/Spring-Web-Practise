@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Getter
 @Service
 public class productService {
 
@@ -17,9 +18,10 @@ public class productService {
             new product(103, "headphones", 10000)
     ));
 
-    public List<product> getProducts() {
-        return products;
-    }
+     //This method is not efficient for large lists as it iterates through the list for each search so instead we use the @Getter method
+//    public List<product> getProducts() {
+//        return products;
+//    }
 
     public product getProductById(int id) {
 

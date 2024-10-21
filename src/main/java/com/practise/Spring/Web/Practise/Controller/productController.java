@@ -16,7 +16,7 @@ public class productController {
     @GetMapping("/products")
     public List<product> getProducts() {
         // Implementation for fetching products from a database
-        return service.getProducts();
+        return service.repo.findAll();
     }
 
     @GetMapping("/products/{id}")
@@ -37,7 +37,7 @@ public class productController {
     }
 
     @DeleteMapping("/products/{id}")
-    public product deleteProduct(@PathVariable int id){
-        return service.deleteProduct(id);
+    public void deleteProduct(@PathVariable int id){
+        service.deleteProduct(id);
     }
 }

@@ -3,17 +3,18 @@ package com.practise.Spring.Web.Practise.Service;
 import com.practise.Spring.Web.Practise.Model.product;
 import com.practise.Spring.Web.Practise.Repository.productRepository;
 import lombok.Getter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.ArrayList;
-import java.util.Arrays;
+//import java.util.ArrayList;
+//import java.util.Arrays;
 import java.util.List;
 
 @Getter
 @Service
 public class productService {
 
+    @Autowired
     public productRepository repo;
-
 
 //    List<product> products = new ArrayList<>(Arrays.asList(
 //            new product(101, "mobile", 50000),
@@ -22,12 +23,11 @@ public class productService {
 //    ));
 
      //This method is not efficient for large lists as it iterates through the list for each search so instead we use the @Getter method
-//    public List<product> getProducts() {
-//        return products;
-//    }
+    public List<product> getProducts() {
+        return repo.findAll();
+    }
 
     public product getProductById(int id) {
-
         // with JPA we only need a return method
         return repo.findById(id).orElse(null);
 
@@ -44,7 +44,6 @@ public class productService {
         }
 
     public product addProduct(product product){
-
         // with JPA
         return repo.save(product);
 
@@ -53,7 +52,6 @@ public class productService {
     }
 
     public product updateProduct(product product){
-
         // with JPA
         return repo.save(product);
 
@@ -69,7 +67,6 @@ public class productService {
     }
 
     public void deleteProduct(int id){
-
         // with JPA (also changing return type to void from product)
         repo.deleteById(id);
 
